@@ -1,0 +1,22 @@
+<h1>Memberships</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>team_id</th>
+      <th>user_id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memberships.each do |m| %>
+      <tr>
+        <td><%= m.id %></td>
+        <td><%= m.team_id %></td>
+        <td><%= m.user_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
