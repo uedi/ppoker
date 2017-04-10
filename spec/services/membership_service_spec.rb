@@ -27,6 +27,13 @@ RSpec.describe MembershipService, type: :service do
       expect(Membership.first.team_id).to eq(@team.id)
       expect(Membership.first.accepted).to eq(false)
     end
+    it "user_member_of_team?(u_id, t_id)" do
+      @user2 = FactoryGirl.create(:user, email: "t22@tt.tt")
+      Membership.create(user_id: @user.id, team_id: @team.id, accepted: true)
+      expect(MembershipService.user_member_of_team?(@user2.id, @team.id)).to eq(false)
+      expect(MembershipService.user_member_of_team?(@user.id, @team.id)).to eq(true)
+      expect(MembershipService.user_member_of_team?(@user2.id + 3, @team.id + 3)).to eq(false)
+    end
   
   end
 

@@ -15,6 +15,10 @@ class MembershipService
     return create_membership(u_id, t_id, false)
   end
   
+  def self.user_member_of_team?(u_id, t_id)
+    return Membership.where(user_id: u_id, team_id: t_id, accepted: true).any?
+  end
+  
   private
     def self.create_membership(u_id, t_id, status)
       u = User.where(id: u_id).first
