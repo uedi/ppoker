@@ -3,5 +3,26 @@
 <% else %>
   <h2>Welcome to PPOKER APP!<h2>
 <% end %>
+</br>
+<p>Create new team</p>
+<%= form_tag '/teams/new' do %>
+  
+  <div class="field">
+    <%= label_tag 'Name' %>
+    <%= text_field_tag "name" %><br>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Create team"%>
+  </div>
+<% end %>
 
+</br>
 
+<% if current_user and current_user.teams.count > 0 %>
+  <p>Your teams</p>
+  <ul>
+  <% current_user.teams.each do |t| %>
+    <li><%= link_to t.name, t %></li>
+  <% end %>
+  </ul>
+<% end %>
