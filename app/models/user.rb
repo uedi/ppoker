@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :memberships, dependent: :destroy
-  has_many :teams, through: :memberships
-
+  has_many :teams, -> { where(memberships: {accepted: true}) }, through: :memberships
+  
 end
