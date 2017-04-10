@@ -1,1 +1,7 @@
-<p>\(^_^)/<p>
+<% if current_user and current_user.firstname %>
+  <h2>Welcome to PPOKER APP, <%= current_user.firstname %>!</h2>
+<% else %>
+  <h2>Welcome to PPOKER APP!<h2>
+<% end %>
+
+
