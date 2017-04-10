@@ -14,3 +14,9 @@ script:
  - bin/rails db:migrate RAILS_ENV=test
  - RAILS_ENV=test bundle exec rake db:migrate --trace
  - bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAztVUfmAivaGsQitznm0g IWvAqs1LSXKZzPvsaeVrZEYekpgOLBk4U7je2wfysn9O0pFOoiW3gqgVzRPGlDIE Dm1Gi1lKVJQ+s6BRGOBWgswvKLA3nQAc7VT34dWGMCaeW3day+vP4qySjulNVFJX X+ZVtHLyIXqPP9UVliRRcgFlVLEjbSjH3YYYAruEASONNLKPsKeUea4U78SL+tSx 7vNTACsEm5sEUxneMswDGeKglwEmmK2nkKYeXI1YEUeumU/iHzK50udVmxucmxnR ru7gV0zfvANIy++Zfr+lEYG+p+sgdM/xkQWP8z0mJqjGKjryDLoEidPWveVopwex 0MtM4jltWDNiG+98yNrxva9oMdkex8Or1p+QmTn9uZo5w8ytF8ZDdxQdpUNFMoW8 t//xNFneGNNaycgUNXPg9CB4HCFW2TmJ2XpnhlPcOSvPJGIkGuvinTra9eLVrQRW HxrEFgW5Kj0VwQr+REwUwTPcdYt5WX45kf1fV/cEdMaCzbTWalrNmjI0iOAt2L4F KUScB3UKKVOFVQYT84yAlqdPwDQFP0VaKmJLPWDDx9Ecub1D0XibgehMzYdjBuXB Gs5tfAANWWGQejBbxnVZ8qj50SS2tGlLaG1EZTbvaktHu3bkN75pSfn7xMQdpQNP 0hm2W9edwp3lWwOjkmdHXSkCAwEAAQ==
+  app: ppokerapp
+  run: rake db:migrate
