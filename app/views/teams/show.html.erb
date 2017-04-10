@@ -1,0 +1,20 @@
+<h1><%= @team.name %></h1>
+<p>Members:<p>
+<ul>
+<% @team.members.each do |m| %>
+  <li><%= m.firstname %> <%= m.lastname %> </li>
+<% end %>
+</ul>
+
+<h3>Invite new user to team</h3>
+<%= form_tag '/memberships/invite' do %>
+  
+  <div class="field">
+    <%= label_tag 'Email' %>
+    <%= text_field_tag "email" %><br>
+  </div>
+  <div class="field"><%= hidden_field_tag :t_id, @team.id %></div>
+  <div class="actions">
+    <%= submit_tag "Invite"%>
+  </div>
+<% end %>
