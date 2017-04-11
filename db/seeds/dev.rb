@@ -66,3 +66,9 @@ Membership.create(user_id: @u20.id, team_id: @t3.id, accepted: false)
 Membership.create(user_id: @u19.id, team_id: @t5.id, accepted: false)
 Membership.create(user_id: @u20.id, team_id: @t5.id, accepted: false)
 
+Story.create(team_id: @t1.id, name: "As a cat owner, I can post pictures of my cat and have them credited to my username so people know that's my cat.")
+Story.create(team_id: @t1.id, name: "As a cat owner, I can up-vote (or favorite) cat photos that are super-cute, so I can be recognized for my super-cute cat.")
+Story.create(team_id: @t1.id, name: "As a boring prof, I can sort the pictures on the site by how many upvotes they've gotten, so that I can quickly find the funniest ones.")
+Story.create(team_id: @t1.id, name: "As a Photoshop nerd, I can copy photos from the site, photoshop them in funny ways, and then re-upload them with a link to the original, so that people see how witty and talented I am.")
+Story.create(team_id: @t1.id, name: "As a site admin, I want users to be able to flag offensive photos so I can quickly check them out, so users aren't driven away from the site.")
+
