@@ -6,6 +6,16 @@
 <% end %>
 </ul>
 
+<% if @team.users_invited.any? %>
+  </br>
+  <p>Users invited:<p>
+  <ul>
+  <% @team.users_invited.each do |i| %>
+    <li><%= i.firstname %> <%= i.lastname %> </li>
+  <% end %>
+  </ul>
+<% end %>
+
 <h3>Invite new user to team</h3>
 <%= form_tag '/memberships/invite' do %>
   
