@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   # TEAMS
   post '/teams/new' => 'teams#create'
+  post '/teams/:id/join' => 'memberships#new'
   
   # MEMBERSHIPS
   post '/memberships/invite' => 'memberships#invite'

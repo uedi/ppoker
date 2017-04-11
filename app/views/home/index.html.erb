@@ -1,10 +1,10 @@
-<% if current_user and current_user.firstname %>
+<% if current_user.firstname %>
   <h2>Welcome to PPOKER APP, <%= current_user.firstname %>!</h2>
 <% else %>
   <h2>Welcome to PPOKER APP!<h2>
 <% end %>
 </br>
-<p>Create new team</p>
+<h4>Create new team</h4>
 <%= form_tag '/teams/new' do %>
   
   <div class="field">
@@ -18,7 +18,7 @@
 
 </br>
 
-<% if current_user and current_user.teams.count > 0 %>
+<% if current_user.teams.any? %>
   <p>Your teams</p>
   <ul>
   <% current_user.teams.each do |t| %>
@@ -26,3 +26,13 @@
   <% end %>
   </ul>
 <% end %>
+
+<% if current_user.teams_to_join.any? %>
+  <h4>You have been invited to following teams</h4>
+  <ul style="list-style-type:none">
+  <% current_user.teams_to_join.each do |t| %>
+    <li><%= t.name %>  <%= link_to 'Join', "/teams/#{t.id}/join", method: :post, class:"btn btn-default" %> </li>
+  <% end %>
+  </ul>
+<% end  %>
+

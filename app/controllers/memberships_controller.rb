@@ -26,5 +26,15 @@ class MembershipsController < ApplicationController
       end
     end
   end
+  
+  def new
+    t_id = params[:id]
+    if MembershipService.accept_invitation(current_user.id, t_id)
+      redirect_to "/teams/#{t_id}", notice: "Welcome to team!"
+    else
+      redirect_to :back, alert: "Error - can't join team"
+    end
+    
+  end
 
 end
