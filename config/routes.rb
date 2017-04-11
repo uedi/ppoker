@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   # MEMBERSHIPS
   post '/memberships/invite' => 'memberships#invite'
   
+  # STORIES
+  post '/teams/:id/stories' => 'stories#create'
+  
 end
