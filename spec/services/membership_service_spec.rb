@@ -34,6 +34,14 @@ RSpec.describe MembershipService, type: :service do
       expect(MembershipService.user_member_of_team?(@user.id, @team.id)).to eq(true)
       expect(MembershipService.user_member_of_team?(@user2.id + 3, @team.id + 3)).to eq(false)
     end
+    it "accept_invitation(u_id, t_id)" do
+      expect(MembershipService.accept_invitation(@user.id, @team.id)).to eq(false)
+      expect(MembershipService.accept_invitation(@user.id + 3, @team.id + 3)).to eq(false)
+      MembershipService.invite_user_to_team(@user.id, @team.id)
+      expect(Membership.count).to eq(1)
+      expect(MembershipService.accept_invitation(@user.id, @team.id)).to eq(true)
+      expect(Membership.first.accepted).to eq(true)
+    end
   
   end
 

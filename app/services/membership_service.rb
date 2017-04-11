@@ -19,6 +19,15 @@ class MembershipService
     return Membership.where(user_id: u_id, team_id: t_id, accepted: true).any?
   end
   
+  def self.accept_invitation(u_id, t_id)
+    m = Membership.where(user_id: u_id, team_id: t_id, accepted: false).first
+    if m
+      m.accepted = true
+      return m.save
+    end
+    return false
+  end
+  
   private
     def self.create_membership(u_id, t_id, status)
       u = User.where(id: u_id).first
