@@ -27,17 +27,32 @@
     <%= submit_tag "Invite"%>
   </div>
 <% end %>
-
-
+</br>
 <% if @team.stories.any? %>
-  </br>
-  <p>Stories:<p>
-  <ul style="list-style-type:none">
-  <% @team.stories.each do |t| %>
-    <li><%= t.name %></li>
-  <% end %>
-  </ul>
+<h3>Stories</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Status</th>
+      <th>Your estimation</th>
+      <th>Estimate</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team.stories.each do |story| %>
+      <tr>
+        <td><%= story.name %></td>
+        <td></td>
+        <td></td>
+        <td>0</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <% end %>
+
 
 <h4>Create new story</h4>
 <%= form_tag "/teams/#{@team.id}/stories/" do %>
