@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
       Story.create(team_id: t_id, name: name)
       redirect_to "/teams/#{t_id}", notice: "New story created!"
     else
-    
+      redirect_to "/teams/", alert: "You need to be member of team to create stories."
     end
     
   end

@@ -1,0 +1,17 @@
+<h4>Starting new poker for team <strong><%= @team.name %></strong></h4>
+</br>
+
+<% if @team.stories.any? %>
+  <%= form_tag '/poker/new' do %>
+  <div>
+    <% @team.stories.each do |s| %>
+      <%= check_box_tag "stories[]", s.id %>
+      <%= s.name %></br>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Not supported yet"%>
+  </div>
+  <% end %>
+<% end %>
+

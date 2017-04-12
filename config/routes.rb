@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   # STORIES
   post '/teams/:id/stories' => 'stories#create'
   
+  # POKER
+  get '/teams/:t_id/pokers/new' => 'pokers#new'
+  
 end

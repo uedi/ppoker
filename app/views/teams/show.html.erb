@@ -34,6 +34,7 @@
   <thead>
     <tr>
       <th></th>
+      <th>Actions</th>
       <th>Status</th>
       <th>Your estimation</th>
       <th>Estimate</th>
@@ -44,7 +45,13 @@
     <% @team.stories.each do |story| %>
       <tr>
         <td><%= story.name %></td>
-        <td></td>
+        <% if story.pokers.empty? %>
+          <td><%= link_to 'Poker!', "/teams/#{@team.id}/pokers/new", method: :get, class:"btn btn-default" %></td>
+          <td><span class="label label-success">Ready to start!</span></td>
+        <% else %>
+          <td></td>
+          <td><span class="label label-primary">Play poker!</span></td>
+        <% end %>
         <td></td>
         <td>0</td>
       </tr>
